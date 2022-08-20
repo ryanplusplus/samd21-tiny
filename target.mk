@@ -20,6 +20,7 @@ include lib_asf.mk
 include lib/tiny/lib_tiny.mk
 include lib/tiny-devices/lib_tiny-devices.mk
 include lib_hardware.mk
+include lib_rtt.mk
 
 .PHONY: all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex

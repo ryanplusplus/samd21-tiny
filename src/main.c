@@ -21,7 +21,7 @@ int main(void)
   interrupts_enable();
 
   SEGGER_RTT_Init();
-  SEGGER_RTT_printf(0, "derp");
+  SEGGER_RTT_printf(0, "Hello, RTT!\n");
 
   while(1) {
     if(!tiny_timer_group_run(&timer_group)) {

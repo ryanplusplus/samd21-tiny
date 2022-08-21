@@ -17,10 +17,10 @@ SRC_DIRS += \
   src \
 
 include lib_asf.mk
+include lib_rtt.mk
 include lib/tiny/lib_tiny.mk
 include lib/tiny-devices/lib_tiny-devices.mk
 include lib_hardware.mk
-include lib_rtt.mk
 
 .PHONY: all
 all: $(BUILD_DIR)/$(TARGET).elf $(BUILD_DIR)/$(TARGET).hex
@@ -32,3 +32,12 @@ watch:
 
 include tools/tools.mk
 include docs.mk
+
+.PHONY: rtt
+rtt:
+	@{ openocd -f $(OPENOCD_CONFIG) -f openocd/rtt.cfg & } && trap 'pkill openocd' EXIT INT && sleep 1 && nc localhost 9090
+
+.PHONY: run
+run:
+	@$(MAKE) --no-print-directory -f $(firstword $(MAKEFILE_LIST)) upload
+	@$(MAKE) --no-print-directory -f $(firstword $(MAKEFILE_LIST)) rtt

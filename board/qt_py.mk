@@ -2,6 +2,7 @@ CPU := cortex-m0
 LINKER_SCRIPT := lib/asf4/samd21/gcc/gcc/samd21g18a_flash.ld
 
 SVD := lib/svd/ATSAMD21E18A.svd
+OPENOCD_CONFIG := openocd/samd21e18.cfg
 
 DEBUG_ADAPTER ?= jlink
 JLINK_DEVICE := ATSAMD21E18

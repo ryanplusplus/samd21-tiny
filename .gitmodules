@@ -13,3 +13,6 @@
 [submodule "lib/asf4"]
 	path = lib/asf4
 	url = https://github.com/adafruit/asf4
+[submodule "lib/tiny-rtt"]
+	path = lib/tiny-rtt
+	url = https://github.com/ryanplusplus/tiny-rtt

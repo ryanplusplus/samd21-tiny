@@ -19,7 +19,7 @@ SRC_DIRS += \
 include lib_asf.mk
 include lib/tiny/lib_tiny.mk
 include lib/tiny-devices/lib_tiny-devices.mk
-include lib_tiny-rtt.mk
+include lib/tiny-rtt/lib_tiny-rtt.mk
 include lib_hardware.mk
 
 .PHONY: all

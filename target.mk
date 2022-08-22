@@ -33,11 +33,11 @@ watch:
 include tools/tools.mk
 include docs.mk
 
-.PHONY: rtt
-rtt:
-	@{ openocd -f $(OPENOCD_CONFIG) -f openocd/rtt.cfg & } && trap 'pkill openocd' EXIT INT && sleep 1 && nc localhost 9090
+.PHONY: rtt-client
+rtt-client:
+	@{ JLinkGDBServer -NoGui 1 -nohalt -singlerun -device $(JLINK_DEVICE) -if SWD -autoconnect 1 -speed 4000 & } && trap 'sleep 0.5' INT && JLinkRTTClient
 
 .PHONY: run
 run:
 	@$(MAKE) --no-print-directory -f $(firstword $(MAKEFILE_LIST)) upload
-	@$(MAKE) --no-print-directory -f $(firstword $(MAKEFILE_LIST)) rtt
+	@$(MAKE) --no-print-directory -f $(firstword $(MAKEFILE_LIST)) rtt-client

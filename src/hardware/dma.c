@@ -20,7 +20,6 @@ static dma_interrupt_handler_t handler[dma_channel_count];
 
 static uint8_t next_channel;
 static uint16_t enabled_channels;
-static uint16_t enabled_channels;
 
 static void init(void)
 {

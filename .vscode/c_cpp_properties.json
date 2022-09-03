@@ -15,8 +15,7 @@
       ],
       "intelliSenseMode": "gcc-arm",
       "cStandard": "c11",
-      "cppStandard": "c++17",
-      "compilerPath": "arm-none-eabi-gcc"
+      "cppStandard": "c++17"
     },
     {
       "name": "qt_py",
@@ -33,8 +32,7 @@
       ],
       "intelliSenseMode": "gcc-arm",
       "cStandard": "c11",
-      "cppStandard": "c++17",
-      "compilerPath": "arm-none-eabi-gcc"
+      "cppStandard": "c++17"
     },
     {
       "name": "xiao",
@@ -51,8 +49,7 @@
       ],
       "intelliSenseMode": "gcc-arm",
       "cStandard": "c11",
-      "cppStandard": "c++17",
-      "compilerPath": "arm-none-eabi-gcc"
+      "cppStandard": "c++17"
     }
   ],
   "version": 4

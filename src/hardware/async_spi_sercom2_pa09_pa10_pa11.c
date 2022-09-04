@@ -19,8 +19,9 @@ static tiny_async_spi_callback_t callback;
 
 static uint8_t dummy_read_buffer;
 
-static void transfer_complete(void)
+static void transfer_complete(void* context)
 {
+  (void)context;
   callback(context);
 }
 
@@ -148,7 +149,7 @@ static inline void configure_dma(void)
   write_channel = dma_channel_claim();
   read_channel = dma_channel_claim();
 
-  dma_channel_install_interrupt_handler(read_channel, transfer_complete);
+  dma_channel_install_interrupt_handler(read_channel, NULL, transfer_complete);
   dma_channel_enable_interrupt(read_channel);
 }
 

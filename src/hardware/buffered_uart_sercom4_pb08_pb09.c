@@ -153,8 +153,9 @@ static inline void initialize_peripheral(uint32_t baud)
   }
 }
 
-static void dma_send_complete(void)
+static void dma_send_complete(void* context)
 {
+  (void)context;
   send_completed = true;
 }
 
@@ -196,7 +197,7 @@ static inline void configure_send_channel(void)
   d->BTCTRL.bit.VALID = 1;
   d->DESCADDR.bit.DESCADDR = 0;
 
-  dma_channel_install_interrupt_handler(send_channel, dma_send_complete);
+  dma_channel_install_interrupt_handler(send_channel, NULL, dma_send_complete);
   dma_channel_enable_interrupt(send_channel);
 }
 

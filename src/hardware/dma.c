@@ -16,6 +16,11 @@ enum {
 static DmacDescriptor descriptor[dma_channel_count] __attribute__((__aligned__(16)));
 static DmacDescriptor write_back_descriptor[dma_channel_count] __attribute__((__aligned__(16)));
 
+typedef struct {
+  void* context;
+  dma_interrupt_callback_t callback;
+} dma_interrupt_handler_t;
+
 static dma_interrupt_handler_t handler[dma_channel_count];
 
 static uint8_t next_channel;
@@ -118,9 +123,10 @@ void dma_channel_disable_interrupt(uint8_t channel)
   });
 }
 
-void dma_channel_install_interrupt_handler(uint8_t channel, dma_interrupt_handler_t _handler)
+void dma_channel_install_interrupt_handler(uint8_t channel, void* context, dma_interrupt_callback_t callback)
 {
-  handler[channel] = _handler;
+  handler[channel].context = context;
+  handler[channel].callback = callback;
 }
 
 void DMAC_Handler(void)
@@ -137,8 +143,8 @@ void DMAC_Handler(void)
       }
     });
 
-    if(transfer_complete && handler[channel]) {
-      handler[channel]();
+    if(transfer_complete && handler[channel].callback) {
+      handler[channel].callback(handler[channel].context);
     }
   }
 }

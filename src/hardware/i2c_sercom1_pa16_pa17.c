@@ -88,7 +88,7 @@ static bool write(
     goto write_error;
   }
 
-  for(uint16_t i = 0; i < buffer_size - 1; i++) {
+  for(uint16_t i = 0; i < buffer_size; i++) {
     wait_for_operation_to_complete();
 
     SERCOM1->I2CM.DATA.reg = buffer[i];

@@ -25,10 +25,11 @@ static void reset(i_tiny_i2c_t* self);
 
 static inline bool wait_for_mb(void)
 {
-  while(!SERCOM3->I2CM.INTFLAG.bit.MB && !SERCOM3->I2CM.INTFLAG.bit.ERROR) {
+  volatile uint32_t timeout = 100000;
+  while(!SERCOM3->I2CM.INTFLAG.bit.MB && !SERCOM3->I2CM.INTFLAG.bit.ERROR && --timeout) {
   }
 
-  return !SERCOM3->I2CM.INTFLAG.bit.ERROR;
+  return !SERCOM3->I2CM.INTFLAG.bit.ERROR && SERCOM3->I2CM.INTFLAG.bit.MB;
 }
 
 static inline bool wait_for_sb(void)

@@ -5,10 +5,10 @@
 
 #include <stdbool.h>
 #include <string.h>
-#include "sam.h"
+#include "buffered_uart_sercom4_pb08_pb09.h"
 #include "clock.h"
 #include "dma.h"
-#include "buffered_uart_sercom4_pb08_pb09.h"
+#include "sam.h"
 #include "tiny_event.h"
 #include "tiny_utils.h"
 

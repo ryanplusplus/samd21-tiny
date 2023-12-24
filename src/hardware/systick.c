@@ -3,9 +3,9 @@
  * @brief
  */
 
-#include "systick.h"
-#include "sam.h"
 #include "clock.h"
+#include "sam.h"
+#include "systick.h"
 
 static struct {
   i_tiny_time_source_t interface;

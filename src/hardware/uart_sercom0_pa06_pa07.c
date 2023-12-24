@@ -3,10 +3,10 @@
  * @brief
  */
 
-#include "sam.h"
 #include "clock.h"
-#include "uart_sercom0_pa06_pa07.h"
+#include "sam.h"
 #include "tiny_event.h"
+#include "uart_sercom0_pa06_pa07.h"
 
 #ifdef SERCOM0
 

@@ -3,10 +3,10 @@
  * @brief
  */
 
-#include "watchdog.h"
-#include "sam.h"
 #include "clock.h"
+#include "sam.h"
 #include "tiny_utils.h"
+#include "watchdog.h"
 
 tiny_static_assert(clock_gclk2_frequency == 32768);
 

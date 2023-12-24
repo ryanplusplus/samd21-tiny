@@ -3,8 +3,8 @@
  * @brief
  */
 
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 #include "heartbeat_pa17.h"
 #include "sam.h"
 

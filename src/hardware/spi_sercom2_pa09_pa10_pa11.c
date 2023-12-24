@@ -3,8 +3,8 @@
  * @brief
  */
 
-#include "sam.h"
 #include "clock.h"
+#include "sam.h"
 #include "spi_sercom2_pa09_pa10_pa11.h"
 #include "tiny_utils.h"
 

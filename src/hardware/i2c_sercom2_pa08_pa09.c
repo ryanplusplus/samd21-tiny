@@ -4,9 +4,9 @@
  */
 
 #include <stddef.h>
-#include "sam.h"
 #include "clock.h"
 #include "i2c_sercom2_pa08_pa09.h"
+#include "sam.h"
 #include "tiny_utils.h"
 
 #ifdef SERCOM2

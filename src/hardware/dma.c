@@ -4,9 +4,9 @@
  */
 
 #include <stdbool.h>
-#include "sam.h"
-#include "interrupts.h"
 #include "dma.h"
+#include "interrupts.h"
+#include "sam.h"
 #include "tiny_utils.h"
 
 enum {

@@ -3,10 +3,10 @@
  * @brief
  */
 
-#include "sam.h"
+#include "async_spi_sercom2_pa09_pa10_pa11.h"
 #include "clock.h"
 #include "dma.h"
-#include "async_spi_sercom2_pa09_pa10_pa11.h"
+#include "sam.h"
 #include "tiny_utils.h"
 
 #ifdef SERCOM2

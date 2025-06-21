@@ -39,8 +39,13 @@ function default_flags(cpu)
   )
 
   add_ldflags(
+    '-mcpu=' .. cpu,
+    '-mthumb',
+    '-g',
+    '-g2',
+    '-Os',
     '-nostartfiles',
     '-Wl,--gc-sections',
-    '--specs=nosys.specs'
+    { force = true }
   )
 end

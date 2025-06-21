@@ -63,9 +63,14 @@ void __libc_init_array(void);
 /* Default empty handler */
 void Dummy_Handler(void);
 
+void DERP(void)
+{
+  __BKPT();
+}
+
 /* Cortex-M0+ core handlers */
 void NMI_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
-void HardFault_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
+void HardFault_Handler(void) __attribute__((weak, alias("DERP")));
 void SVC_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void PendSV_Handler(void) __attribute__((weak, alias("Dummy_Handler")));
 void SysTick_Handler(void) __attribute__((weak, alias("Dummy_Handler")));

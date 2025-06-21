@@ -6,7 +6,7 @@
     {
       "label": "jlink-debug-deps",
       "type": "shell",
-      "command": "make -j16 -f target.mk debug-deps DEBUG_ADAPTER=jlink",
+      "command": "ulimit -n 999999999 && xmake build target",
       "presentation": {
         "echo": true,
         "reveal": "silent",

@@ -7,12 +7,13 @@
     {
       "name": "Target (jlink)",
       "cwd": "${workspaceRoot}",
-      "executable": "${workspaceFolder}/build/target.elf",
+      "executable": "${workspaceFolder}/build/linux/arm64/release/target.elf",
       "request": "launch",
       "type": "cortex-debug",
       "servertype": "jlink",
       "device": "ATSAMD21G18",
       "svdFile": "${workspaceFolder}/build/target.svd",
+      "gdbPath": "/home/ryan/.local/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/14.2.1-1.1.1/.content/bin/arm-none-eabi-gdb",
       "preLaunchTask": "jlink-debug-deps"
     },
     {

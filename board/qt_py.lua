@@ -14,5 +14,9 @@ board = {
 
   svd = function()
     return 'lib/svd/ATSAMD21E18A.svd'
+  end,
+
+  device = function()
+    return 'ATSAMD21E18A'
   end
 }

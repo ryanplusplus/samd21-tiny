@@ -13,6 +13,6 @@ function xpack_toolchain(name, which)
   toolchain(name)
   set_kind('standalone')
   set_toolset('size', toolchain_type:gsub('%-[^%-]+$', '-size'))
-  set_sdkdir('~/.local/xPacks/@xpack-dev-tools/' .. toolchain_type .. '/' .. toolchain_version .. '/.content/')
+  set_sdkdir('~/' .. (os.host() == 'macosx' and 'Library' or '.local') .. '/xPacks/@xpack-dev-tools/' .. toolchain_type .. '/' .. toolchain_version .. '/.content/')
   toolchain_end()
 end

@@ -1,4 +1,4 @@
-function default_flags(cpu)
+function add_default_flags(cpu)
   add_asflags(
     '-mcpu=' .. cpu,
     '-mthumb',

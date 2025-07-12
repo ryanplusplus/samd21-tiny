@@ -1,15 +1,13 @@
 board = {
-  init = function()
+  configure = function()
     add_defines(
       '__SAMD21G18A__'
     )
   end,
 
-  configure = function()
-    add_ldflags(
-      '-T lib/asf4/samd21/gcc/gcc/samd21g18a_flash.ld'
-    )
-    add_includedirs('src/board/metro_m0')
+  configure_target = function(self, target)
+    target:add('ldflags', '-T lib/asf4/samd21/gcc/gcc/samd21g18a_flash.ld')
+    target:add('includedirs', 'src/board/metro_m0')
   end,
 
   svd = function()

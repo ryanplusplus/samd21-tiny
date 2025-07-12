@@ -9,6 +9,7 @@ includes('board/metro_m0.lua')
 local board = board
 board:configure()
 
+includes('show-size.lua')
 includes('jlink.lua')
 
 includes('lib_asf.lua')
@@ -20,16 +21,12 @@ target('target') do
   set_kind('binary')
   set_extension('.elf')
   add_deps('asf', 'hardware', 'tiny', 'tiny-rtt')
+  add_rules('show-size')
   add_files('src/*.c')
   add_includedirs('src')
   on_load(function(target)
     board:configure_target(target)
     target:add('ldflags', '-Wl,-Map,$(builddir)/$(plat)/$(arch)/$(mode)/' .. target:name() .. '.map')
-  end)
-
-  after_build(function(target)
-    import('core.tool.toolchain')
-    os.exec(toolchain.load('gcc-arm'):tool('size') .. ' ' .. target:targetfile())
   end)
 end
 
